@@ -14,8 +14,8 @@ jobs:
           src: "."
 
   flake8-lint:
-    runs-on: ubuntu-latest
     name: Flake8 Linter
+    runs-on: ubuntu-latest
     steps:
       - name: Check out source repository
         uses: actions/checkout@v3
