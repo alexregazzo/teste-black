@@ -1,20 +1,27 @@
-name: Lint
+name: Linters
 
-on: [pull_request]
+on: [ pull_request ]
 
 jobs:
-  lint:
-    name: Lint
+  black-lint:
+    name: Black Linter
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Black Linter
-        uses: psf/black@stable
+      - uses: psf/black@stable
         with:
           options: "--check --diff"
           src: "."
-      - uses: actions/setup-python@v4
+
+  flake8-lint:
+    runs-on: ubuntu-latest
+    name: Flake8 Linter
+    steps:
+      - name: Check out source repository
+        uses: actions/checkout@v3
+      - name: Set up Python environment
+        uses: actions/setup-python@v4
         with:
           python-version: "3.11"
-      - name: Flake Linter
-        uses: py-actions/flake8@v2
+      - uses: py-actions/flake8@v2
+
