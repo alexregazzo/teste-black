@@ -4,6 +4,7 @@ on: [push, pull_request]
 
 jobs:
   lint:
+    name: Black Lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -14,7 +15,7 @@ jobs:
 
   flake8-lint:
     runs-on: ubuntu-latest
-    name: Lint
+    name: Flake 8 Lint
     steps:
       - name: Check out source repository
         uses: actions/checkout@v3
